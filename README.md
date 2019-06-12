@@ -1,1 +1,1 @@
-# WorldBankDataKeras
+Simple Machine Learning project using Keras and World Bank Data. 
