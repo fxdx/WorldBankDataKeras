@@ -1,4 +1,5 @@
 import pandas
+import matplotlib.pyplot as plt
 
 class CountryInformations:
 
@@ -12,11 +13,32 @@ class CountryInformations:
         self.renewable_electricity_status = xls_parsing.import_country_renewable_electricity_status()
 
     def __str__(self):
+        print_string = 'Country: {} \n \
+                        Population: {} \n \
+                        CO2 Emissions: {}KT \n \
+                        Renewable Electricity Status: {}%'.format(self.name, \
+                                                                  self.population, \
+                                                                  self.co2_emissions, \
+                                                                  self.renewable_electricity_status)
+        return print_string
 
-        return 'Country: {}, Population: {}, CO2 Emissions: {}KT, Renewable Electricity Status: {}%'.format(self.name, \
-                                                                                                         self.population, \
-                                                                                                         self.co2_emissions, \
-                                                                                                         self.renewable_electricity_status)
+    def plot_graph(self, x_data, y_data, title):
+        figure_plot = plt.figure()
+
+        main_graph = figure_plot.add_subplot(111)
+
+        main_graph.plot(x_data, 
+                        y_data, 
+                        color='lightcoral', 
+                        linewidth=3,
+                        linestyle='--')
+
+        main_graph.set_xlim(x_data[0], x_data[-1])
+
+        plt.xlabel('Year')
+        plt.ylabel(title)
+
+        plt.show(main_graph)
 
 
 class XLSParsing:
@@ -25,7 +47,6 @@ class XLSParsing:
         self.name = name
         self.data = pandas.read_excel(r'API_19_DS2_en_excel_v2_10577512.xls')
         self.unnecessary_columns = ('Country Name:', 'Country Code:', 'Indicator Name:', 'Indicator Code:')
-
 
     def dropping_nan(self, dictionary_to_check):
         new_dict = dict()
@@ -36,7 +57,6 @@ class XLSParsing:
                 pass
 
         return new_dict
-
 
     # Population, total
     def import_country_population(self):
@@ -107,6 +127,6 @@ class XLSParsing:
         return renewable_electricity_status
 
 
-if __name__ == "__main__":
-    country = CountryInformations('Germany')
-    print(country)
+#if __name__ == "__main__":
+    #country = CountryInformations('Germany')
+    #country.plot_graph(list(country.population.keys()), list(country.population.values()), 'Population')
