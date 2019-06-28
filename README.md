@@ -1,1 +1,1 @@
-Simple Machine Learning project using Keras and World Bank Data. 
+World Bank data processing project using numpy and matplotlib
