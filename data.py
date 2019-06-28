@@ -23,14 +23,4 @@ class CountryInformations:
                                                                   self.co2_emissions, \
                                                                   self.renewable_electricity_status)
         return print_string
-
-
-# Testing Purposes
-if __name__ == "__main__":
-    country1 = CountryInformations('Poland')
-    country2 = CountryInformations('Germany')
-    country3 = CountryInformations('France')
-
-    graph = graph_plotting.GraphPlotting(country1, country2, country3)
-    graph.plot_graph_co2_emissions()
     
