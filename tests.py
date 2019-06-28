@@ -2,7 +2,7 @@ import unittest
 import data
 import xls_parse
 
-class TestSum(unittest.TestCase):
+class TestXLSParsing(unittest.TestCase):
 
     def test_import_population1(self):
         xls_parsing_object = xls_parse.XLSParsing('Aruba')
