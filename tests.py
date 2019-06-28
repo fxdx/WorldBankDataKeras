@@ -1,6 +1,7 @@
 import unittest
 import data
 import xls_parse
+import graph_plotting
 
 class TestXLSParsing(unittest.TestCase):
 
@@ -25,5 +26,16 @@ class TestXLSParsing(unittest.TestCase):
         self.assertEqual(sweden_emissions['2008:'], 49123, 'Should be 49123')
 
 
-if __name__ == '__main__':
+def units():
     unittest.main()
+
+
+# Testing Purposes
+if __name__ == "__main__":
+    country1 = data.CountryInformations('Poland')
+    country2 = data.CountryInformations('Germany')
+    country3 = data.CountryInformations('France')
+    country4 = data.CountryInformations('Zimbabwe')
+
+    graph = graph_plotting.GraphPlotting(country1, country2, country3, country4)
+    graph.plot_graph_co2_emissions()
