@@ -14,19 +14,22 @@ class GraphPlotting:
 
             main_graph = figure_plot.add_subplot(111)
 
-            main_graph.scatter(list(country.co2_emissions.keys()),
+            main_graph.plot(list(country.co2_emissions.keys()),
                                list(country.co2_emissions.values()),
                                label=country.name,
-                               c=numpy.random.rand(3,))
+                               c=numpy.random.rand(3,), # Random color
+                               #p Points are connected
+                               linestyle='-',
+                               marker='o')
             
             main_graph.set_xlim(list(country.co2_emissions.keys())[0], 
                                 list(country.co2_emissions.keys())[-1])
 
         plt.legend(loc='upper left')
         plt.tick_params(axis='x', rotation=70)
-        plt.title('CO2 Emissions Over Years')
+        plt.title('CO2 Emissions (T) Over Years')
         plt.xlabel('Year')
-        plt.ylabel('Co2 emissions')
+        plt.ylabel('Co2 emissions (T)')
         plt.show()
 
     def plot_graph_population(self):
@@ -36,19 +39,22 @@ class GraphPlotting:
 
             main_graph = figure_plot.add_subplot(111)
 
-            main_graph.scatter(list(country.population.keys()),
+            main_graph.plot(list(country.population.keys()),
                                list(country.population.values()),
                                label=country.name,
-                               c=numpy.random.rand(3,))
+                               c=numpy.random.rand(3,), # Random color
+                               # Points are connected
+                               linestyle='-',
+                               marker='o')
             
             main_graph.set_xlim(list(country.population.keys())[0], 
                                 list(country.population.keys())[-1])
 
         plt.legend(loc='upper left')
         plt.tick_params(axis='x', rotation=70)
-        plt.title('Population Over Years')
+        plt.title('Population Over Years (milions)')
         plt.xlabel('Year')
-        plt.ylabel('Population')
+        plt.ylabel('Population (milions)')
         plt.show()
 
     def plot_graph_renewable_electricity_status(self):
@@ -58,10 +64,13 @@ class GraphPlotting:
 
             main_graph = figure_plot.add_subplot(111)
 
-            main_graph.scatter(list(country.renewable_electricity_status.keys()),
+            main_graph.plot(list(country.renewable_electricity_status.keys()),
                                list(country.renewable_electricity_status.values()),
                                label=country.name,
-                               c=numpy.random.rand(3,))
+                               c=numpy.random.rand(3,), #Random color 
+                               # Points are connected
+                               linestyle='-',
+                               marker='o')
             
             main_graph.set_xlim(list(country.renewable_electricity_status.keys())[0], 
                                 list(country.renewable_electricity_status.keys())[-1])
