@@ -34,7 +34,6 @@ class GraphPlotting:
                                list(country.co2_emissions_linear_regression.values()),
                                label=country.name,
                                c=color, #Random color 
-                               # Points are connected
                                linestyle='-')
             
             main_graph.set_xlim(list(country.co2_emissions_linear_regression.keys())[0], 
@@ -42,9 +41,9 @@ class GraphPlotting:
 
         plt.legend(loc='upper left')
         plt.tick_params(axis='x', rotation=70)
-        plt.title('CO2 Emissions (T) Over Years')
+        plt.title('CO2 Emissions (MT) Over Years')
         plt.xlabel('Year')
-        plt.ylabel('Co2 emissions (T)')
+        plt.ylabel('Co2 emissions (MT)')
         plt.show()
 
     def plot_graph_population(self):
@@ -74,7 +73,6 @@ class GraphPlotting:
                                list(country.population_linear_regression.values()),
                                label=country.name,
                                c=color, #Random color 
-                               # Points are connected
                                linestyle='-')
             
             main_graph.set_xlim(list(country.population_linear_regression.keys())[0], 
@@ -114,7 +112,6 @@ class GraphPlotting:
                                list(country.renewable_electricity_status_linear_regression.values()),
                                label=country.name,
                                c=color, #Random color 
-                               # Points are connected
                                linestyle='-')
             
             main_graph.set_xlim(list(country.renewable_electricity_status_linear_regression.keys())[0], 

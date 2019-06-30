@@ -12,7 +12,15 @@ class CountryInformations:
         xls_parsing = xls_parse.XLSParsing(self.name)
         
         self.population = xls_parsing.import_country_population()
+        # Dividing by 10^6 to have smaller values (important during calculating linear regression)
+        for key in self.population:
+            self.population[key] = self.population[key] / 1000000
+
         self.co2_emissions = xls_parsing.import_country_co2_emissions()
+        # Dividing by 10^3 to have smaller values (important during calculating linear regression)
+        for key in self.co2_emissions:
+            self.co2_emissions[key] = self.co2_emissions[key] / 1000
+
         self.renewable_electricity_status = xls_parsing.import_country_renewable_electricity_status()
 
         # I want to have linear regression values in format [year] : value
@@ -58,8 +66,8 @@ class CountryInformations:
 
     def __str__(self):
         print_string = 'Country: {} \n \
-                        Population: {}M \n \
-                        CO2 Emissions: {}KT \n \
+                        Population: {} milions \n \
+                        CO2 Emissions: {}GT \n \
                         Renewable Electricity Status: {}%'.format(self.name, \
                                                                   self.population, \
                                                                   self.co2_emissions, \
