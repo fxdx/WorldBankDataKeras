@@ -22,18 +22,39 @@ class CountryInformations:
 
         linear = linear_regr.LinearRegression(list(self.population_linear_regression.values()))
         # Replacing values in dict by values from linear regression
-        self.population_linear_regression = dict.fromkeys(self.population_linear_regression,
-                                                          linear.return_values_of_linear_regression())
+        values = linear.return_values_of_linear_regression()
+        for i in range(0, len(values)):
+            values[i] = int(values[i])
+        
+        # simple variable indexing values
+        i=0
+        for key in self.population_linear_regression.keys():
+            self.population_linear_regression[key] = values[i]
+            i = i+1
 
         linear = linear_regr.LinearRegression(list(self.co2_emissions_linear_regression.values()))
         # Replacing values in dict by values from linear regression
-        self.co2_emissions_linear_regression = dict.fromkeys(self.co2_emissions_linear_regression,
-                                                             linear.return_values_of_linear_regression())
+        values = linear.return_values_of_linear_regression()
+        for i in range(0, len(values)):
+            values[i] = int(values[i])
+        
+        # simple variable indexing values
+        i=0
+        for key in self.co2_emissions_linear_regression.keys():
+            self.co2_emissions_linear_regression[key] = values[i]
+            i = i+1
 
         linear = linear_regr.LinearRegression(list(self.renewable_electricity_status_linear_regression.values()))
         # Replacing values in dict by values from linear regression
-        self.renewable_electricity_status_linear_regression = dict.fromkeys(self.renewable_electricity_status_linear_regression, 
-                                                                            linear.return_values_of_linear_regression())
+        values = linear.return_values_of_linear_regression()
+        for i in range(0, len(values)):
+            values[i] = int(values[i])
+        
+        # simple variable indexing values
+        i=0
+        for key in self.renewable_electricity_status_linear_regression.keys():
+            self.renewable_electricity_status_linear_regression[key] = values[i]
+            i = i+1
 
     def __str__(self):
         print_string = 'Country: {} \n \

@@ -33,9 +33,9 @@ def units():
 # Testing Purposes
 if __name__ == "__main__":
     country1 = data.CountryInformations('Poland')
-    country2 = data.CountryInformations('Germany')
+    country2 = data.CountryInformations('United States')
     country3 = data.CountryInformations('France')
     country4 = data.CountryInformations('Zimbabwe')
 
     graph = graph_plotting.GraphPlotting(country1, country2, country3, country4)
-    graph.plot_graph_co2_emissions()
+    graph.plot_graph_renewable_electricity_status()

@@ -8,14 +8,11 @@ class LinearRegression:
         self.values_to_return = []
 
     def getlinear(self, x1):
-        # Function that returns value
-        def inner(x1):
-            return self.m * x1 + self.b
     
         self.m = (len(self.x) * np.sum(self.x*self.y) - np.sum(self.x) * np.sum(self.y)) / (len(self.x)*np.sum(self.x*self.x) - np.sum(self.x) * np.sum(self.x))
         self.b = (np.sum(self.y) - self.m*np.sum(self.x)) / len(self.x)
 
-        return inner
+        return self.m * x1 + self.b
 
     def return_values_of_linear_regression(self):
         for x_param in self.x:
