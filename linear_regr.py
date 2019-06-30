@@ -1,17 +1,24 @@
-import numpy
+import numpy as np
 
-# I'm using idea from https://devarea.com/linear-regression-with-numpy/#.XRfdcegzaUk
+# I'm using the idea from https://devarea.com/linear-regression-with-numpy/#.XRfdcegzaUk
 class LinearRegression:
     def __init__(self, values):
-        
-        self.y = numpy.array(values)
-        self.x = numpy.array([number for number in range(1, len(values)+1)])
+        self.y = np.array(values)
+        self.x = np.array([number for number in range(1, len(values)+1)])
+        self.values_to_return = []
 
-    def getlinear(self):
- 
+    def getlinear(self, x1):
+        # Function that returns value
         def inner(x1):
             return self.m * x1 + self.b
     
-        self.m = (len(self.x) * numpy.sum(self.x*self.y) - numpy.sum(self.x) * numpy.sum(self.y)) / (len(self.x)*numpy.sum(self.x*self.x) - numpy.sum(self.x) * numpy.sum(self.x))
-        self.b = (numpy.sum(self.y) - self.m*numpy.sum(self.x)) / len(self.x)
+        self.m = (len(self.x) * np.sum(self.x*self.y) - np.sum(self.x) * np.sum(self.y)) / (len(self.x)*np.sum(self.x*self.x) - np.sum(self.x) * np.sum(self.x))
+        self.b = (np.sum(self.y) - self.m*np.sum(self.x)) / len(self.x)
+
         return inner
+
+    def return_values_of_linear_regression(self):
+        for x_param in self.x:
+            self.values_to_return.append(self.getlinear(x_param))
+
+        return self.values_to_return
