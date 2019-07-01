@@ -26,16 +26,31 @@ class TestXLSParsing(unittest.TestCase):
         self.assertEqual(sweden_emissions['2008:'], 49123, 'Should be 49123')
 
 
+def test_co2_plotting():
+    country1 = data.CountryInformations('Poland')
+    country2 = data.CountryInformations('France')
+
+    graph = graph_plotting.GraphPlotting(country1, country2)
+    graph.plot_graph_co2_emissions()
+
+def test_population_plotting():
+    country1 = data.CountryInformations('Sweden')
+    country2 = data.CountryInformations('Spain')
+    country3 = data.CountryInformations('Poland')
+
+    graph = graph_plotting.GraphPlotting(country1, country2, country3)
+    graph.plot_graph_population()
+
+def test_renewable_energy_status_plotting():
+    country1 = data.CountryInformations('Portugal')
+
+    graph = graph_plotting.GraphPlotting(country1)
+    graph.plot_graph_renewable_electricity_status()
+
 def units():
     unittest.main()
 
 
 # Testing Purposes
 if __name__ == "__main__":
-    country1 = data.CountryInformations('Poland')
-    country2 = data.CountryInformations('United States')
-    country3 = data.CountryInformations('France')
-    country4 = data.CountryInformations('Zimbabwe')
-
-    graph = graph_plotting.GraphPlotting(country1, country2, country3, country4)
-    graph.plot_graph_renewable_electricity_status()
+    test_renewable_energy_status_plotting()
