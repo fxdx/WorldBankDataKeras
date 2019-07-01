@@ -32,7 +32,7 @@ class GraphPlotting:
 
             main_graph.plot(list(country.co2_emissions_linear_regression.keys()),
                                list(country.co2_emissions_linear_regression.values()),
-                               label=country.name,
+                               label='{} Predictions'.format(country.name),
                                c=color, #Random color 
                                linestyle='-')
             
@@ -71,7 +71,7 @@ class GraphPlotting:
 
             main_graph.plot(list(country.population_linear_regression.keys()),
                                list(country.population_linear_regression.values()),
-                               label=country.name,
+                               label='{} Predictions'.format(country.name),
                                c=color, #Random color 
                                linestyle='-')
             
@@ -110,7 +110,7 @@ class GraphPlotting:
 
             main_graph.plot(list(country.renewable_electricity_status_linear_regression.keys()),
                                list(country.renewable_electricity_status_linear_regression.values()),
-                               label=country.name,
+                               label='{} Predictions'.format(country.name),
                                c=color, #Random color 
                                linestyle='-')
             
