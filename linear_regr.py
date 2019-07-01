@@ -1,6 +1,9 @@
 import numpy as np
 
-# I'm using the idea from https://devarea.com/linear-regression-with-numpy/#.XRfdcegzaUk
+# Let's have y = mx + b
+# so we have set of pairs (x,y) so we need calculate m and b
+# m = (N * sum(xy) - sum(x) * sum(y)) / (N * sum(x**2) - (sum(x))**2))
+# b = (sum(y) - m * sum(x)) / N
 class LinearRegression:
     def __init__(self, values):
         self.y = np.array(values)
