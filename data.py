@@ -9,6 +9,7 @@ class CountryInformations:
     def __init__(self, name):
         self.name = name
 
+        self.name = self.name.capitalize()
         xls_parsing = xls_parse.XLSParsing(self.name)
         
         self.population = xls_parsing.import_country_population()
