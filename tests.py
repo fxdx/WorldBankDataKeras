@@ -52,5 +52,5 @@ def units():
 
 
 # Testing Purposes
-if __name__ == "__main__":
-    test_renewable_energy_status_plotting()
+#if __name__ == "__main__":
+#    test_renewable_energy_status_plotting()
